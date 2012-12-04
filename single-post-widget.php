@@ -17,13 +17,13 @@ class SinglePostWidget extends WP_Widget {
     private $domain = "single-post-widget";
 
     function __construct() {
-		$widget_ops = array(
+        $widget_ops = array(
             'description' => __('Display single selected Post or Page.', $this->domain)
         );
-		$control_ops = array('width' => 400, 'height' => 350);
+        $control_ops = array('width' => 400, 'height' => 350);
         parent::__construct(
             false,
-            __('Single Post', $this->domain),
+            __('Slider ASN', $this->domain),
             $widget_ops,
             $control_ops
         );
@@ -44,7 +44,7 @@ class SinglePostWidget extends WP_Widget {
         $size = (isset($instance['size']) && $instance['size']) ? $instance['size'] : '';
         $sfield = $this->get_field_id('size');
         $sfname = $this->get_field_name('size');
-        /* echo '<p>';
+        /*echo '<p>';
         echo __('Image size:', $this->domain);
         echo '<br />';
         $op = '<option value="%s"%s>%s</option>';
@@ -57,13 +57,13 @@ class SinglePostWidget extends WP_Widget {
                 printf($op, $s, '', $s);
             }
         }
-        echo "</select>";
-        echo '</p>'; */
+        echo "</select>"; 
+        echo '</p>';*/
 
         $tpl_value = (isset($instance['tpl']) && $instance['tpl']) ? $instance['tpl'] : $this->template();
         $tpl_field = $this->get_field_id('tpl');
         $tpl_fname = $this->get_field_name('tpl');
-        /* echo '<label for="'.$tpl_field.'">';
+        /*echo '<label for="'.$tpl_field.'">';
         echo __("Template:", $this->domain);
         echo '</label><br />';
         printf(
@@ -71,7 +71,7 @@ class SinglePostWidget extends WP_Widget {
             $tpl_field,
             $tpl_fname,
             htmlentities($tpl_value, ENT_QUOTES, 'UTF-8')
-        ); */
+        );*/
 
         $tags = array(
             "%post_title%",
@@ -82,9 +82,9 @@ class SinglePostWidget extends WP_Widget {
             "%class%",
         );
 
-      /*  echo '<div style="margin:5px 0;">';
+       /* echo '<div style="margin:5px 0;">';
         echo '<code>'.join("</code>, <code>", $tags).'</code>';
-        echo '</div>'; */
+        echo '</div>';*/
     }
 
     public function update($new_instance, $old_instance) {
@@ -109,16 +109,17 @@ class SinglePostWidget extends WP_Widget {
 
         $p    = get_post($pid);
 
-       /* echo $args['before_widget'];
+/*        echo $args['before_widget'];
         echo $args['before_title'];
-        echo esc_html($p->post_title);
-        echo $args['after_title']; */
+        //echo esc_html($p->post_title);
+        echo $args['after_title'];*/
 
         $class = array(
             $p->post_type.'-'.$pid,
             $p->post_type,
             'single-post-widget'
         );
+        $instance['size'] = 'slider_asn_image';
         if ($instance['size']) {
             $class[] = 'size-'.$instance['size'];
         }
@@ -127,8 +128,7 @@ class SinglePostWidget extends WP_Widget {
         } else {
             $post_thumb = '';
         }
-
-       /* $tpl = str_replace(
+/*        $tpl = str_replace(
             '%post_date%',
             mysql2date(get_option("date_format"), $p->post_date, false),
             $tpl
@@ -137,9 +137,9 @@ class SinglePostWidget extends WP_Widget {
         $tpl = str_replace('%post_excerpt%', esc_html($p->post_excerpt), $tpl);
         $tpl = str_replace('%post_thumb%', $post_thumb, $tpl);
         $tpl = str_replace('%post_url%', esc_url(get_permalink($pid)), $tpl);
-        $tpl = str_replace('%class%', join(' ', $class), $tpl); */
-
+        $tpl = str_replace('%class%', join(' ', $class), $tpl);*/
 ?>
+
 <li>
     <div>       
         <?php echo $post_thumb; ?>
@@ -149,10 +149,9 @@ class SinglePostWidget extends WP_Widget {
         </div>
     </div>
 </li>
-<?php 
-
-     /*   echo $tpl;
-        echo $args['after_widget']; */
+  <?php 
+/*       echo $tpl;
+       echo $args['after_widget'];*/
     }
 
     private function template()
