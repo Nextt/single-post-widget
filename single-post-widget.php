@@ -141,12 +141,14 @@ class SinglePostWidget extends WP_Widget {
 ?>
 
 <li>
-    <div>       
-        <?php echo $post_thumb; ?>
-        <div class="destaques-asn-item">
-            <h4><?php echo esc_html($p->post_title); ?></h4>
-            <p><?php echo esc_html($p->post_excerpt); ?></p>
-        </div>
+    <div>
+        <a href="<?php echo get_permalink($p->ID); ?>">
+            <?php echo $post_thumb; ?>
+            <div class="destaques-asn-item">
+                <h4><?php echo esc_html($p->post_title); ?></h4>
+                <p><?php echo esc_html($p->post_excerpt); ?></p>
+            </div>
+        </a>
     </div>
 </li>
   <?php 
