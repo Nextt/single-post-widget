@@ -57,7 +57,7 @@ class SinglePostWidget extends WP_Widget {
                 printf($op, $s, '', $s);
             }
         }
-        echo "</select>"; 
+        echo "</select>";
         echo '</p>';*/
 
         $tpl_value = (isset($instance['tpl']) && $instance['tpl']) ? $instance['tpl'] : $this->template();
@@ -102,7 +102,7 @@ class SinglePostWidget extends WP_Widget {
         if (!$pid) {
             return '';
         }
-        $tpl  = ($instance['tpl']) ? $instance['tpl'] : $this->template();
+        $tpl  = (isset($instance['tpl']) && $instance['tpl']) ? $instance['tpl'] : $this->template();
         if (!isset($instance['size'])) {
             $instance['size'] = '';
         }
@@ -151,7 +151,7 @@ class SinglePostWidget extends WP_Widget {
         </a>
     </div>
 </li>
-  <?php 
+  <?php
 /*       echo $tpl;
        echo $args['after_widget'];*/
     }
