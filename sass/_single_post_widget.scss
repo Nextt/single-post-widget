@@ -1,0 +1,23 @@
+.destaques-asn-item {
+  background: rgba(103, 158, 104, 0.9);
+  width: 240px;
+  height: 260px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 20px 20px 50px 20px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border-radius: 0px 5px 5px 0px;
+}
+.destaques-asn-item h4 {
+  font-family: 'Lato';
+  color: #ffffff;
+  font-style: italic;
+  margin-top: 0px;
+}
+.destaques-asn-item p {
+  font-family: 'Lato';
+  color: #ffffff;
+  line-height: 15px;
+}
