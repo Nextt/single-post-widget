@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Single Post Widget
+Plugin Name: Single Post Widget - iDSA
 Description: Display single post from url on sidebar widget.
 Author: Takayuki Miyauchi
 Version: 0.3.0
